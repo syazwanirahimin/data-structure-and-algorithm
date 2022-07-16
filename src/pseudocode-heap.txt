@@ -1,0 +1,45 @@
+heap: ordered binary tree
+max heap: parent > child
+min heap: parent < child
+
+
+build-max-heap: creates max heap from unsorted array
+heapify: similar to build-max-heap, but assumes part of array is already sorted.
+
+
+array = [2,8,5,3,9,1]
+
+tree
+
+1. create max heap
+2. remove largest item
+3. place item in sorted partition
+
+Heapsort(A as array)
+    BuildMaxHeap(A)
+    for i = n to 1
+    swap (A[1], A[i])
+    n = n - 1
+    Heapify(A, 1)
+
+BuildMaxHeap(A as array)
+    n = elements_in(A)
+    for i = floor (n/2) to 1
+        Heapify(A,i)
+
+Heapify(A as array, i as int)
+    left = 2i
+    right = 2i + 1
+
+    if (left <= n) and (A[left] > A[i])
+        max = left
+    else
+        max = i
+
+    if (right <= n) and (A[right] > A[max])
+        max = right
+
+    if (max != i)
+        swap(A[i], A[max])
+        Heapify(A, max)
+
