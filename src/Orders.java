@@ -34,11 +34,29 @@ public class Orders {
 
     }
 
+    public static int getThirdSmallest(int[] a, int n) {
+        int temp;
+        /**
+         * sort the array and return third smallest element
+         */
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
+                if (a[i] > a[j]) {
+                    temp = a[i];
+                    a[i] = a[j];
+                    a[j] = temp;
+                }
+            }
+        }
+        return a[2];
+    }
+
     public static void main(String[] args) {
         Orders test = new Orders();
         int array[] = {4,9,1,32,12};
         int n = array.length;
-        thirdSmallest(array, n);
+        System.out.println(getThirdSmallest(array, n));
+//        thirdSmallest(array, n);
     }
 }
 
