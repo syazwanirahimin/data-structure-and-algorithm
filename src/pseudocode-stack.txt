@@ -1,0 +1,18 @@
+push(E item) – pushes an item to the top of the stack
+pop() – removes and returns the object at the top of the stack
+peek() – returns the object at the top of the stack without removing it
+
+
+LIFO
+last in first out
+
+
+The Pseudocode
+Before we dive in, let’s do a little pseudocode & see how our code might look in plain English:
+
+1. We’ll need to create our stack to hold our open parentheses’. This will start off as an empty array.
+2. Set up our for loop, which will iterate through our input string
+3. During each iteration, if our current element is an open parentheses ( ‘(‘ or ‘{‘ or ‘[‘ ), let’s push that element into the top of our stack
+4. During each iteration, if our current element is a closing bracket (‘)‘ or ‘}‘ or ‘]‘), let’s pop off the last opening parentheses element from the stack ONLY if it matches with the encountered closing bracket
+5. Remember, order matters here. If the closing bracket that we encounter does not match with the opening bracket placed on top of the stack, we then immediately break out of the loop and return false because the parentheses in the string are not balanced.
+6. If the stack is empty after we’ve finished our iteration, we can conclude that our string contains a balanced parentheses and we can return true
