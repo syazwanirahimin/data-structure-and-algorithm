@@ -1,0 +1,113 @@
+Pigeon transfer (50 miles)
+1 gb -> 60min
+2 gb -> 60min
+3 gb -> 60min
+1000 gb -> 60min
+
+constant time O(1)
+constant time beats linear if data is sufficiently big
+
+
+internet transfer - Linear time
+1 gb -> 30min
+2 gb -> 60 min
+3 gb -> 90 min
+1000 gb -> 50 hours
+
+
+O(n) - where N = amount of data/ where N is the size of the array
+
+Big O - how time scales with respect to some input variables
+
+pseudocode
+1. O(N) - linear
+boolean contains(array x){
+    for each element in array {
+    if element == x {
+        return true
+    }
+    }
+}
+
+2. O(N^2)
+void printPairs(array){
+    for each x in array {
+        for each y in array{
+        print x,y
+        }
+     }
+}
+
+
+3. square 100m * 100m
+// many Big O times to do not use N, it is just a variable, any letter will do
+option a: O(a) a = area of grass
+option b: O(s^2) s = length of one side
+
+O(a) and O(s^2) are EQUIVALENT since a=s^2
+Variables have meanings, and it matters what they are
+
+========RULES=====
+1) Different steps get added
+
+function something() {
+    doStep1(); //O(a)
+    doStep2(); //O(b)
+    // O(a+b)
+}
+
+2) Drop constants
+// both function do it same thing
+O(2N) => O(N)
+function minMax1(array){ -> O(n)
+    min, max = NULL
+    for each c in array  -> O(n)
+        min = Min(c, min)
+    for each c in array -> O(n)
+        max = Max(c, max)
+}
+
+function minMax2(array){-> O(n)
+    min, max = NULL
+    for each c in array
+        min = Min(c, min)
+        max = Max(c, max)
+}
+
+
+3) Different inputs => Different variables
+must have meaning
+NOT call as O(N^2) but  describe as O(a*b) a= length of arrayA, b = length of arrayB
+int intersectionSize(array A, array B){
+    int count = 0
+    for a in arrayA {
+        for b in arrayB {
+            if a == b {
+            count = count + 1
+            }
+        }
+    }
+    return count
+}
+
+
+4) Drop non-dominant terms
+// if left and right are equivalent (see rule 2), then center is too so O(n+n^2) => O(n)
+function whyWouldIdoThis(array) {  O(n^2) <= O(n+n^2) <= O(n^2 +n^2)
+    max = null;
+    for each a in array { -> O(n)
+        max = Max(a, max)
+    }
+     print max
+
+     for each a in array {  O(n^2)
+        for each b in array {
+            print a,b
+        }
+     }
+}
+
+
+
+
+
