@@ -7,7 +7,7 @@ import java.util.List;
 // reverse a singly linked list
     // input: 1->2->3->4->5->NULL
     // output: 5->4->3->2->1->NULL
-    // time complexity = O(n)
+    // both time complexity = O(n)
 public class ReverseLinkedList {
 
     public ListNode reverseListIterative(ListNode head) {
