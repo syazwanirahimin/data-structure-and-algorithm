@@ -1,5 +1,11 @@
 import java.util.*;
 
+/**
+ * 1. counts the occurences of each number in the array
+ * for each array element i it finds the number of its divisors in a range from 1 to sqrt(i),
+ * inclyding the divisors which are the result of the division
+ * 3. finally, substracts a total number of divisors for given element from a total number of elements in the array
+ */
 public class CountNonDivisible {
     static int[] solution(int[] A) {
 
