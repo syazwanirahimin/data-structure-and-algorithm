@@ -42,6 +42,14 @@ public class WordSearchI {
     }
 
     public static void main(String[] args) {
+//        System.out.println(new WordSearchI().exist(new char[][]{{'a','a'}}, "aaa"));
+//        System.out.println(new WordSearchI().exist(new char[][]{{'a','b', 'c', 'e'},{'s', 'f', 'c', 's'},
+//                {'a', 'd', 'e', 'e'}}, "abcced"));
+        System.out.println(new WordSearchI().exist(new char[][]{{'a','b', 'c', 'e'},{'s', 'f', 'c', 's'},
+                {'a', 'd', 'e', 'e'}}, "see"));
+//        System.out.println(new WordSearchI().exist(new char[][]{{'a','b', 'c', 'e'},{'s', 'f', 'c', 's'},
+//                {'a', 'd', 'e', 'e'}}, "abcb"));
+//        System.out.println(new WordSearchI().exist(new char[][]{{'a','b'}}, "ba"));
 
     }
 
