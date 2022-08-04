@@ -1,54 +1,47 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class N_queens {
-    List<List<String>> result;
+    List<List<String>> res = new ArrayList<>();
     public List<List<String>> solveNQueens(int n) {
-        result = new ArrayList<>();
-        char[][] board = new char[n][n];
-
-        //Filled it as empty cells
-        for(int i = 0; i < n; i++){
-            for(int j = 0; j < n; j++) {
-                board[i][j] = '.';
-            }
-        }
-
-        List<int[]> queens = new ArrayList<>();
-        dfs(board, 0, queens);
-        return result;
+        placeQueen(new int[n][n], 0, new HashSet<>(), new HashSet<>(), new HashSet<>());
+        return res;
     }
-
-    private void dfs(char[][] board, int r, List<int[]> queens) {
-        //Check if all queens are placed
-        if(queens.size() == board.length) {
-            //Construct output
-            List<String> rows = new ArrayList<>();
-            for(char[] row : board) {
-                rows.add(new String(row));
-            }
-            result.add(rows);
+    public void placeQueen(int[][] board, int i, Set<Integer> diagonal, Set<Integer> diagonal2, Set<Integer> vertical) {
+        if (i == board.length) {
+            // Call the function that adds the strings
+            addToList(board);
+            return ;
         }
+        for (int j = 0; j < board.length; j++) {
+            if (!diagonal.contains(i+j) && !diagonal2.contains(j-i) && !vertical.contains(j)) {
+                board[i][j] = 1;
+                diagonal.add(i+j);
+                diagonal2.add(j);
+                vertical.add(j);
+                placeQueen(board, i+1, diagonal, diagonal2, vertical);
+                board[i][j] = 0;
+                diagonal.remove(i+j);
+                diagonal2.remove(j);
+                vertical.remove(j);
 
-        //Try adding the queen
-        for(int c = 0; c < board.length; c++) {
-            if(canAddQueen(r,c,queens)) {
-                board[r][c] = 'Q';
-                queens.add(new int[]{r,c});
-                dfs(board, r+1, queens);
-                board[r][c] = '.';
-                queens.remove(queens.size()-1);
             }
         }
     }
-
-    private boolean canAddQueen(int r, int c, List<int[]> queens) {
-        for(int[] q : queens) {
-            int dx = Math.abs(r-q[0]);
-            int dy = Math.abs(c-q[1]);
-            if(dx==0 || dy==0 || dx==dy) return false;
+    public void addToList(int[][] board) {
+        List<String> list = new ArrayList<>();
+        for (int i = 0; i < board.length; i++) {
+            String temp = "";
+            for (int j = 0; j < board.length; j++) {
+                if (board[i][j] == 0) {
+                    temp += ".";
+                }
+                else {
+                    temp += "Q";
+                }
+            }
+            list.add(temp);
         }
-        return true;
+        res.add(list);
     }
 
     public static void main(String[] args) {
