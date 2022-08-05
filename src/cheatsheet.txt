@@ -1,0 +1,14 @@
+Use compareTo():
+"aa".compareTo("a") // return 1 (more character)
+"a".compareTo("aa" // return -1 if the string is less than the other string (less characters)
+"a".compareTo("a") // return 0 because they are equal
+
+compareTo() compares two strings lexicographically
+
+
+Comparator:
+(a,b)=>{
+    return 1 // if b should be before a
+    return -1 // if a should be before b
+    return 0 // order stays the same
+}
