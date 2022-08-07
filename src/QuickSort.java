@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Quicksort {
+public class QuickSort {
 
     // method to find the partition position
     static int partition(int array[], int low, int high) {
@@ -65,7 +65,7 @@ class Main {
         int size = data.length;
 
         // call quicksort() on array data
-        Quicksort.quickSort(data, 0, size - 1);
+        QuickSort.quickSort(data, 0, size - 1);
 
         System.out.println("Sorted Array in Ascending Order ");
         System.out.println(Arrays.toString(data));
