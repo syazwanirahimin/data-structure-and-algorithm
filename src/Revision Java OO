@@ -1,0 +1,15 @@
+// how to initialise an array
+int[] arr = new int[5];
+
+// how to take input from users in java
+import java.util.Scanner
+
+Scanner console = new Scanner(System.in);
+int num = console.nextInt();
+console.nextLine(); // to take in the enter after the nextInt();
+String str = console.nextLine();
+
+
+// how to sort an array in java
+import java.util.Arrays;
+Arrays.sort(array);
